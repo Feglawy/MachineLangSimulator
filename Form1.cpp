@@ -64,7 +64,6 @@ void CppCLRWinFormsProject::Form1::InitializeRegList()
 
 
 void CppCLRWinFormsProject::Form1::UpdateMemoryAndRegisters() {
-	Form1::GetPC();
 	for (int i = 0; i < 16; i++) {
 		RegistersValueList[i]->Text = machine->getRegisterNumber(i);
 	}
@@ -73,6 +72,7 @@ void CppCLRWinFormsProject::Form1::UpdateMemoryAndRegisters() {
 		MemoryDataGrid->Rows->Add(makeHex(i), machine->getTheMemoryNumber(i));
 	}
 	outputBox->Text = makeSysString(machine->output);
+	Form1::GetPC();
 }
 
 void CppCLRWinFormsProject::Form1::GetPC() {
