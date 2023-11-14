@@ -1,6 +1,7 @@
 #pragma once
 #include <bits/stdc++.h>
 #include <msclr/marshal_cppstd.h>
+#pragma warning(disable : 4244)
 
 using namespace std;
 
@@ -55,6 +56,7 @@ protected:
     Register registers[registersCount];
 
 public:
+    string output = "";
     Register counter;
     MachineSimulator() {}
 

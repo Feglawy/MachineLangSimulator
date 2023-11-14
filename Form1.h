@@ -813,5 +813,6 @@ private:
     void GetIR();
     void InitializeRegList();
     void UpdateMemoryAndRegisters();
+    System::String^ makeSysString(string NormalString);
 };
 }

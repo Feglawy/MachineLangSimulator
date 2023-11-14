@@ -190,7 +190,7 @@ void MachineSimulator::StoreTheBitPatternInMemory(int operand)
 
     if (xy == 0)
     {
-        cout << "output : 0x" << MachineSimulator::getTheHexDicemal(registers[R].store()) << endl;
+        output = MachineSimulator::getTheHexDicemal(registers[R].store());
     }
     MachineSimulator::incrementCounter();
 }

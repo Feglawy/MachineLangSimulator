@@ -72,7 +72,7 @@ void CppCLRWinFormsProject::Form1::UpdateMemoryAndRegisters() {
 	for (int i = 0; i < 256; i++) {
 		MemoryDataGrid->Rows->Add(makeHex(i), machine->getTheMemoryNumber(i));
 	}
-
+	outputBox->Text = makeSysString(machine->output);
 }
 
 void CppCLRWinFormsProject::Form1::GetPC() {
@@ -85,7 +85,7 @@ void CppCLRWinFormsProject::Form1::GetIR()
 
 }
 
-System::String^ makeSysString(string NormalString) {
+System::String^ CppCLRWinFormsProject::Form1::makeSysString(string NormalString) {
 	return msclr::interop::marshal_as<System::String^>(NormalString);
 }
 
