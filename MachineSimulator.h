@@ -68,10 +68,14 @@ public:
     // runs instructions 
     void runInstructions(vector<int> instr);
 
+    System::String^ getProgramCounter();
+
     System::String^ getRegisterNumber(int address);
 
     System::String^ getTheMemoryNumber(int address);
 
+    // loads the instructions to memory
+    void loadMemory(vector<int> instr);
 
 private:
     // for the floating point
@@ -85,8 +89,6 @@ private:
     // increments the counter by 2 for every step
     void incrementCounter();
 
-    // loads the instructions to memory
-    void loadMemory(vector<int> instr);
 
     //_____________________________________________________________________
     // 1RXX sets the register R with the value of address xx in the memory

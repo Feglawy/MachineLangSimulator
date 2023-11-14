@@ -41,6 +41,7 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Button^ HaltButton;
     private: System::Windows::Forms::Button^ SingelStepButton;
     private: System::Windows::Forms::Button^ RunButton;
+    private: System::Windows::Forms::Button^ ResetButton;
     private: System::Windows::Forms::TextBox^ PCBOX;
     private: System::Windows::Forms::Label^ label2;
     private: System::Windows::Forms::Button^ LoadDataButton;
@@ -108,6 +109,7 @@ namespace CppCLRWinFormsProject {
             this->HaltButton = (gcnew System::Windows::Forms::Button());
             this->SingelStepButton = (gcnew System::Windows::Forms::Button());
             this->RunButton = (gcnew System::Windows::Forms::Button());
+            this->ResetButton = (gcnew System::Windows::Forms::Button());
             this->PCBOX = (gcnew System::Windows::Forms::TextBox());
             this->label2 = (gcnew System::Windows::Forms::Label());
             this->LoadDataButton = (gcnew System::Windows::Forms::Button());
@@ -203,7 +205,7 @@ namespace CppCLRWinFormsProject {
             // 
             // HaltButton
             // 
-            this->HaltButton->Location = System::Drawing::Point(323, 529);
+            this->HaltButton->Location = System::Drawing::Point(323, 607);
             this->HaltButton->Name = L"HaltButton";
             this->HaltButton->Size = System::Drawing::Size(236, 68);
             this->HaltButton->TabIndex = 29;
@@ -230,6 +232,16 @@ namespace CppCLRWinFormsProject {
             this->RunButton->Text = L"Run";
             this->RunButton->UseVisualStyleBackColor = true;
             this->RunButton->Click += gcnew System::EventHandler(this, &Form1::RunButton_Click);
+            // 
+            // RunButton
+            // 
+            this->ResetButton->Location = System::Drawing::Point(323, 529);
+            this->ResetButton->Name = L"ResetButton";
+            this->ResetButton->Size = System::Drawing::Size(236, 68);
+            this->ResetButton->TabIndex = 27;
+            this->ResetButton->Text = L"Reset memory and registers";
+            this->ResetButton->UseVisualStyleBackColor = true;
+            this->ResetButton->Click += gcnew System::EventHandler(this, &Form1::ResetButton_Click);
             // 
             // PCBOX
             // 
@@ -754,6 +766,7 @@ namespace CppCLRWinFormsProject {
             this->Controls->Add(this->label5);
             this->Controls->Add(this->HaltButton);
             this->Controls->Add(this->SingelStepButton);
+            this->Controls->Add(this->ResetButton);
             this->Controls->Add(this->RunButton);
             this->Controls->Add(this->PCBOX);
             this->Controls->Add(this->label2);
@@ -786,11 +799,16 @@ private:
     System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
     System::Void LoadDataButton_Click(System::Object^ sender, System::EventArgs^ e);
     System::Void RunButton_Click(System::Object^ sender, System::EventArgs^ e);
+    System::Void ResetButton_Click(System::Object^ sender, System::EventArgs^ e);
     System::Void SingelStepButton_Click(System::Object^ sender, System::EventArgs^ e);
     System::Void HaltButton_Click(System::Object^ sender, System::EventArgs^ e);
     
+    System::String^ makeHex(int number);
 
 
+    vector<int> GetInstructions();
+    void GetPC();
+    void GetIR();
     void InitializeRegList();
     void UpdateMemoryAndRegisters();
 };

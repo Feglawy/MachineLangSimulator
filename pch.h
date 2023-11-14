@@ -9,5 +9,10 @@
 
 #include "MachineSimulator.h"
 #include <bits/stdc++.h>
+#include <msclr/marshal_cppstd.h>
+
+using namespace std;
+
+
 
 #endif //PCH_H

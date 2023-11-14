@@ -111,6 +111,12 @@ void MachineSimulator::runInstructions(vector<int> instr)
     MachineSimulator::executeSimulator();
 }
 
+System::String^ MachineSimulator::getProgramCounter()
+{
+    string PC = getTheHexDicemal(counter.store());
+    return msclr::interop::marshal_as<System::String^>(PC);
+}
+
 System::String^ MachineSimulator::getRegisterNumber(int address)
 {
     string RegisterValue = getTheHexDicemal(registers[address].store());
