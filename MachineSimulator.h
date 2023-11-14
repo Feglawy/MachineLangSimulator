@@ -76,14 +76,10 @@ public:
 
     // loads the instructions to memory
     void loadMemory(vector<int> instr);
+    
+    void ResetCounter();
 
-    void ResetMemoryAndRegisters() {
-        memory.resetMemory();
-        for (int i = 0; i < registersCount; i++) {
-            Register Reseted = Register();
-            registers[i] = Reseted;
-        }
-    }
+    void ResetMemoryAndRegisters();
 
 private:
     // for the floating point

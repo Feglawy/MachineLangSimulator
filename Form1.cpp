@@ -33,7 +33,7 @@ System::Void CppCLRWinFormsProject::Form1::ResetButton_Click(System::Object^ sen
 
 System::Void CppCLRWinFormsProject::Form1::HaltButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	machine->executeOp(0xC, 000);
 }
 
 

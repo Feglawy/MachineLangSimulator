@@ -54,6 +54,21 @@ void MachineSimulator::loadMemory(vector<int> instr)
     }
 }
 
+void MachineSimulator::ResetCounter()
+{
+    Register Reseted = Register();
+    MachineSimulator::counter = Reseted;
+}
+
+void MachineSimulator::ResetMemoryAndRegisters()
+{
+    memory.resetMemory();
+    this->ResetCounter();
+    for (int i = 0; i < registersCount; i++) {
+        Register Reseted = Register();
+        registers[i] = Reseted;
+    }
+}
 
 void MachineSimulator::executeOp(int opcode, int operand)
 {
