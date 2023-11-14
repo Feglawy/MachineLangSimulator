@@ -42,10 +42,10 @@ void MachineSimulator::loadMemory(vector<int> instr)
 {
     unsigned char memAddress = 0;
 
-    for (auto i : instr)
+    for (int i = 0; i < instr.size(); i++)
     {
-        int op1 = (i & 0xFF00) >> 2 * HexDec; // 8;
-        int op2 = (i & 0x00FF);
+        int op1 = (instr[i] & 0xFF00) >> 2 * HexDec; // 8;
+        int op2 = (instr[i] & 0x00FF);
 
         MachineSimulator::memory.write(memAddress, op1);
         memAddress++;
@@ -115,9 +115,27 @@ void MachineSimulator::executeSimulator()
 
         int op = (part1 & 0xF0) >> HexDec;
         int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
-
+        if (op == 0) {
+            break;
+        }
         MachineSimulator::executeOp(op, operand);
     }
+}
+
+void MachineSimulator::executeNext()
+{
+    int part1Address = MachineSimulator::counter.store();
+    int part2Address = MachineSimulator::counter.store() + 1;
+
+    int part1 = MachineSimulator::memory.read(part1Address);
+    int part2 = MachineSimulator::memory.read(part2Address);
+
+    int op = (part1 & 0xF0) >> HexDec;
+    int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
+    if (op == 0) {
+        return;
+    }
+    MachineSimulator::executeOp(op, operand);
 }
 
 void MachineSimulator::runInstructions(vector<int> instr)

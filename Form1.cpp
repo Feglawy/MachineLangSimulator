@@ -8,9 +8,10 @@ System::Void CppCLRWinFormsProject::Form1::Form1_Load(System::Object^ sender, Sy
 
 System::Void CppCLRWinFormsProject::Form1::LoadDataButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	vector <int> instructions = Form1::GetInstructions();
+	vector <int> instructionsVector = Form1::GetInstructions();
+	instructions = &instructionsVector;
 	machine->ResetMemoryAndRegisters();
-	machine->loadMemory(instructions);
+	machine->loadMemory(*instructions);
 	UpdateMemoryAndRegisters();
 }
 
@@ -22,6 +23,7 @@ System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sende
 
 System::Void CppCLRWinFormsProject::Form1::SingelStepButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	machine->executeNext();
 	UpdateMemoryAndRegisters();
 }
 

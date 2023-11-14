@@ -795,6 +795,7 @@ namespace CppCLRWinFormsProject {
 private:
     MachineSimulator* machine = new MachineSimulator();
     List<System::Windows::Forms::TextBox^>^ RegistersValueList;
+    vector <int>* instructions;
 
     System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
     System::Void LoadDataButton_Click(System::Object^ sender, System::EventArgs^ e);

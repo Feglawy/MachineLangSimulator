@@ -65,6 +65,9 @@ public:
     // executes multi instructions
     void executeSimulator();
 
+    // executes the next instruction in memory
+    void executeNext();
+
     // runs instructions 
     void runInstructions(vector<int> instr);
 
