@@ -808,6 +808,7 @@ private:
 
 
     vector<int> GetInstructions();
+    void SelectCurrentInstructionRow(int index);
     void GetPC();
     void GetIR();
     void InitializeRegList();

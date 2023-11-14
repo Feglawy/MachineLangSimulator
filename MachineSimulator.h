@@ -53,10 +53,9 @@ class MachineSimulator
 protected:
     Memory memory;
     Register registers[registersCount];
-    Register counter;
-
 
 public:
+    Register counter;
     MachineSimulator() {}
 
     // executes a single instruction

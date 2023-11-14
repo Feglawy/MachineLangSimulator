@@ -17,7 +17,7 @@ System::Void CppCLRWinFormsProject::Form1::LoadDataButton_Click(System::Object^ 
 
 System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	// in the end (implemnt the RunButton Then Update mempory and registers)
+	machine->executeSimulator();
 	UpdateMemoryAndRegisters();
 }
 
@@ -77,6 +77,7 @@ void CppCLRWinFormsProject::Form1::UpdateMemoryAndRegisters() {
 
 void CppCLRWinFormsProject::Form1::GetPC() {
 	PCBOX->Text = machine->getProgramCounter();
+	SelectCurrentInstructionRow(machine->counter.store());
 }
 
 void CppCLRWinFormsProject::Form1::GetIR() 
@@ -105,4 +106,11 @@ vector<int> CppCLRWinFormsProject::Form1::GetInstructions() {
 		Instructions.push_back(stoi(Instruction, nullptr, 16));
 	}
 	return Instructions;
+}
+
+void CppCLRWinFormsProject::Form1::SelectCurrentInstructionRow(int index) {
+	
+	MemoryDataGrid->ClearSelection();
+	MemoryDataGrid->Rows[index]->Selected = true;
+	
 }
