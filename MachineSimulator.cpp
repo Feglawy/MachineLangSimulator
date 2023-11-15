@@ -113,6 +113,8 @@ void MachineSimulator::executeSimulator()
         int part1 = MachineSimulator::memory.read(part1Address);
         int part2 = MachineSimulator::memory.read(part2Address);
 
+        IR = MachineSimulator::getTheHexDicemal(part1) + MachineSimulator::getTheHexDicemal(part2);
+
         int op = (part1 & 0xF0) >> HexDec;
         int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
         if (op == 0) {
@@ -129,6 +131,8 @@ void MachineSimulator::executeNext()
 
     int part1 = MachineSimulator::memory.read(part1Address);
     int part2 = MachineSimulator::memory.read(part2Address);
+
+    IR = MachineSimulator::getTheHexDicemal(part1) + MachineSimulator::getTheHexDicemal(part2);
 
     int op = (part1 & 0xF0) >> HexDec;
     int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;

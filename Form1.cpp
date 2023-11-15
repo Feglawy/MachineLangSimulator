@@ -73,6 +73,7 @@ void CppCLRWinFormsProject::Form1::UpdateMemoryAndRegisters() {
 	}
 	outputBox->Text = makeSysString(machine->output);
 	Form1::GetPC();
+	Form1::GetIR();
 }
 
 void CppCLRWinFormsProject::Form1::GetPC() {
@@ -82,7 +83,7 @@ void CppCLRWinFormsProject::Form1::GetPC() {
 
 void CppCLRWinFormsProject::Form1::GetIR() 
 {
-
+	IRBOX->Text = makeSysString(machine->IR);
 }
 
 System::String^ CppCLRWinFormsProject::Form1::makeSysString(string NormalString) {

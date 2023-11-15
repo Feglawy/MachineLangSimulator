@@ -57,6 +57,7 @@ protected:
 
 public:
     string output = "";
+    string IR = "";
     Register counter;
     MachineSimulator() {}
 
