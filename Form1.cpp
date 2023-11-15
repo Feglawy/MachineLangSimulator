@@ -17,8 +17,14 @@ System::Void CppCLRWinFormsProject::Form1::LoadDataButton_Click(System::Object^ 
 
 System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	machine->executeSimulator();
-	UpdateMemoryAndRegisters();
+	try {
+		machine->executeSimulator();
+		UpdateMemoryAndRegisters();
+	}
+	catch (const std::exception& e){
+		String^ errorMessage = gcnew String(e.what());
+		MessageBox::Show(errorMessage, "Invalid OP", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 }
 
 System::Void CppCLRWinFormsProject::Form1::SingelStepButton_Click(System::Object^ sender, System::EventArgs^ e)

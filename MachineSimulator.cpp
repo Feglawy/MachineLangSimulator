@@ -97,7 +97,7 @@ void MachineSimulator::executeOp(int opcode, int operand)
         break;
 
     default:
-        //throw InvalidOP("invalid type op 0x" + MachineSimulator::getTheHexDicemal(opcode));
+        throw runtime_error("invalid type op 0x" + MachineSimulator::getTheHexDicemal(opcode));
         break;
 
     }
