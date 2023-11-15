@@ -83,13 +83,16 @@ void CppCLRWinFormsProject::Form1::GetPC() {
 
 void CppCLRWinFormsProject::Form1::GetIR() 
 {
-	IRBOX->Text = makeSysString(machine->IR);
+	System::String^ IR = makeSysString(machine->IR);
+	IRBOX->Text = IR;
 }
 
+// converts from string to system::string 
 System::String^ CppCLRWinFormsProject::Form1::makeSysString(string NormalString) {
 	return msclr::interop::marshal_as<System::String^>(NormalString);
 }
 
+// converts decimal integers to hexadicimal 
 System::String^ CppCLRWinFormsProject::Form1::makeHex(int number) {
 	stringstream stream;
 	stream << hex << uppercase << number;
@@ -98,6 +101,8 @@ System::String^ CppCLRWinFormsProject::Form1::makeHex(int number) {
 	return makeSysString(Hex);
 }
 
+
+// reads the instructions from the inputBox 
 vector<int> CppCLRWinFormsProject::Form1::GetInstructions() {
 	vector<int> Instructions;
 	string Instruction = msclr::interop::marshal_as<std::string>(InstructionsBox->Text);
@@ -110,7 +115,7 @@ vector<int> CppCLRWinFormsProject::Form1::GetInstructions() {
 }
 
 void CppCLRWinFormsProject::Form1::SelectCurrentInstructionRow(int index) {
-	
+
 	MemoryDataGrid->ClearSelection();
 	MemoryDataGrid->Rows[index]->Selected = true;
 	

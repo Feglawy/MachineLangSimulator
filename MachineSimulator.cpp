@@ -114,6 +114,7 @@ void MachineSimulator::executeSimulator()
         int part2 = MachineSimulator::memory.read(part2Address);
 
         IR = MachineSimulator::getTheHexDicemal(part1) + MachineSimulator::getTheHexDicemal(part2);
+        IR = (IR.size() == 3) ? IR + "0" : IR;
 
         int op = (part1 & 0xF0) >> HexDec;
         int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
@@ -133,6 +134,7 @@ void MachineSimulator::executeNext()
     int part2 = MachineSimulator::memory.read(part2Address);
 
     IR = MachineSimulator::getTheHexDicemal(part1) + MachineSimulator::getTheHexDicemal(part2);
+    IR = (IR.size() == 3) ? IR + "0" : IR;
 
     int op = (part1 & 0xF0) >> HexDec;
     int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
@@ -194,7 +196,7 @@ void MachineSimulator::StoreTheBitPatternInMemory(int operand)
 
     if (xy == 0)
     {
-        output = MachineSimulator::getTheHexDicemal(registers[R].store());
+        output += MachineSimulator::getTheHexDicemal(registers[R].store()) + "\r\n";
     }
     MachineSimulator::incrementCounter();
 }
