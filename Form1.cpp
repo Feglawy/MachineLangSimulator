@@ -19,11 +19,11 @@ System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sende
 {
 	try {
 		machine->executeSimulator();
-		UpdateMemoryAndRegisters();
 	}
 	catch (Exception^ e){
 		MessageBox::Show(e->Message, "Invalid OP", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
+	UpdateMemoryAndRegisters();
 }
 
 System::Void CppCLRWinFormsProject::Form1::SingelStepButton_Click(System::Object^ sender, System::EventArgs^ e)

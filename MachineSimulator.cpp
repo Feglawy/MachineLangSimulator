@@ -101,29 +101,18 @@ void MachineSimulator::executeOp(int opcode, int operand)
     default:
         throw runtime_error("invalid type op 0x" + MachineSimulator::getTheHexDicemal(opcode));
         break;
-
     }
 }
 
 void MachineSimulator::executeSimulator()
 {
-    while (MachineSimulator::counter.store() < 255)
+    while (memory.read(MachineSimulator::counter.store()) != 0xC0 && MachineSimulator::counter.store() < 255)
     {
-        int part1Address = MachineSimulator::counter.store();
-        int part2Address = MachineSimulator::counter.store() + 1;
+        MachineSimulator::executeNext();
+    }
 
-        int part1 = MachineSimulator::memory.read(part1Address);
-        int part2 = MachineSimulator::memory.read(part2Address);
-
-        IR = MachineSimulator::getTheHexDicemal(part1) + MachineSimulator::getTheHexDicemal(part2);
-        IR = (IR.size() == 3) ? IR + "0" : IR;
-
-        int op = (part1 & 0xF0) >> HexDec;
-        int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
-        if (op == 0) {
-            break;
-        }
-        MachineSimulator::executeOp(op, operand);
+    if (memory.read(MachineSimulator::counter.store()) == 0xC0) {
+        MachineSimulator::executeNext();
     }
 }
 
