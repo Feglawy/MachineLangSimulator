@@ -68,6 +68,8 @@ void MachineSimulator::ResetMemoryAndRegisters()
         Register Reseted = Register();
         registers[i] = Reseted;
     }
+    output = "";
+    IR = "0";
 }
 
 void MachineSimulator::executeOp(int opcode, int operand)
