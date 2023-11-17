@@ -21,9 +21,8 @@ System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sende
 		machine->executeSimulator();
 		UpdateMemoryAndRegisters();
 	}
-	catch (const std::exception& e){
-		String^ errorMessage = gcnew String(e.what());
-		MessageBox::Show(errorMessage, "Invalid OP", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	catch (Exception^ e){
+		MessageBox::Show(e->Message, "Invalid OP", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
 
