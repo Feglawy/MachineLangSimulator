@@ -235,7 +235,7 @@ void MachineSimulator::Jump(int operand)
 void MachineSimulator::Halt(int operand)
 {
     cout << "Machine Halted" << endl;
-    MachineSimulator::incrementCounter();
+    // MachineSimulator::incrementCounter();
     // exit(EXIT_SUCCESS);
 }
 
