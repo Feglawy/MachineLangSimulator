@@ -36,7 +36,6 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Label^ label6;
     protected:
     private: System::Windows::Forms::TextBox^ outputBox;
-    private: System::Windows::Forms::Button^ ClearMemoryButton;
     private: System::Windows::Forms::Label^ label5;
     private: System::Windows::Forms::Button^ HaltButton;
     private: System::Windows::Forms::Button^ SingelStepButton;
@@ -104,7 +103,6 @@ namespace CppCLRWinFormsProject {
 		{
             this->label6 = (gcnew System::Windows::Forms::Label());
             this->outputBox = (gcnew System::Windows::Forms::TextBox());
-            this->ClearMemoryButton = (gcnew System::Windows::Forms::Button());
             this->label5 = (gcnew System::Windows::Forms::Label());
             this->HaltButton = (gcnew System::Windows::Forms::Button());
             this->SingelStepButton = (gcnew System::Windows::Forms::Button());
@@ -182,15 +180,6 @@ namespace CppCLRWinFormsProject {
             this->outputBox->ReadOnly = true;
             this->outputBox->Size = System::Drawing::Size(284, 85);
             this->outputBox->TabIndex = 32;
-            // 
-            // ClearMemoryButton
-            // 
-            this->ClearMemoryButton->Location = System::Drawing::Point(609, 964);
-            this->ClearMemoryButton->Name = L"ClearMemoryButton";
-            this->ClearMemoryButton->Size = System::Drawing::Size(236, 68);
-            this->ClearMemoryButton->TabIndex = 31;
-            this->ClearMemoryButton->Text = L"Clear memory";
-            this->ClearMemoryButton->UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -762,7 +751,6 @@ namespace CppCLRWinFormsProject {
             this->ClientSize = System::Drawing::Size(1144, 782);
             this->Controls->Add(this->label6);
             this->Controls->Add(this->outputBox);
-            this->Controls->Add(this->ClearMemoryButton);
             this->Controls->Add(this->label5);
             this->Controls->Add(this->HaltButton);
             this->Controls->Add(this->SingelStepButton);
