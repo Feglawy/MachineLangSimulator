@@ -37,7 +37,12 @@ System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sende
 
 System::Void CppCLRWinFormsProject::Form1::SingelStepButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	machine->executeNext();
+	try {
+		machine->executeNext();
+	}
+	catch (...) {
+		MessageBox::Show("There might be something wrong please check your instructions are valid or not", "Something went wrong", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 	UpdateMemoryAndRegisters();
 }
 

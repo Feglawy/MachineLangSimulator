@@ -130,7 +130,7 @@ void MachineSimulator::executeNext()
     int op = (part1 & 0xF0) >> HexDec;
     int operand = ((part1 & 0x0F) << 2 * HexDec) + part2;
     if (op == 0) {
-        return;
+        throw runtime_error("invalid type op 0x" + MachineSimulator::getTheHexDicemal(op));
     }
     MachineSimulator::executeOp(op, operand);
 }
