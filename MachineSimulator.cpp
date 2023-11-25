@@ -106,9 +106,22 @@ void MachineSimulator::executeOp(int opcode, int operand)
 
 void MachineSimulator::executeSimulator()
 {
+    // maximum allowed duration for the loop
+    const std::chrono::seconds maxDuration(2);
+
+    // Get the current time before starting the loop
+    auto startTime = std::chrono::steady_clock::now();
+
     while (memory.read(MachineSimulator::counter.store()) != 0xC0 && MachineSimulator::counter.store() < 255)
     {
         MachineSimulator::executeNext();
+        // Check the elapsed time
+        auto currentTime = chrono::steady_clock::now();
+        auto elapsedTime = chrono::duration_cast<std::chrono::seconds>(currentTime - startTime);
+
+        if (elapsedTime > maxDuration) {
+            throw runtime_error("Loop execution time exceeded 2 seconds");
+        }
     }
 
     if (memory.read(MachineSimulator::counter.store()) == 0xC0) {
