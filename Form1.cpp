@@ -3,7 +3,16 @@
 
 System::Void CppCLRWinFormsProject::Form1::Form1_Load(System::Object^ sender, System::EventArgs^ e)
 {
-	UpdateMemoryAndRegisters();
+	for (int i = 0; i < 16; i++) {
+		RegistersValueList[i]->Text = machine->getRegisterNumber(i);
+	}
+	MemoryDataGrid->Rows->Clear();
+	for (int i = 0; i < 256; i++) {
+		MemoryDataGrid->Rows->Add(makeHex(i), machine->getTheMemoryNumber(i));
+	}
+	outputBox->Text = makeSysString(machine->output);
+	Form1::GetPC();
+	Form1::GetIR();
 }
 
 System::Void CppCLRWinFormsProject::Form1::LoadDataButton_Click(System::Object^ sender, System::EventArgs^ e)
@@ -20,8 +29,8 @@ System::Void CppCLRWinFormsProject::Form1::RunButton_Click(System::Object^ sende
 	try {
 		machine->executeSimulator();
 	}
-	catch (Exception^ e){
-		MessageBox::Show(e->Message, "Invalid OP", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	catch (...){
+		MessageBox::Show("There might be something wrong please check your instructions are valid or not", "Something went wrong", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 	UpdateMemoryAndRegisters();
 }
@@ -72,9 +81,10 @@ void CppCLRWinFormsProject::Form1::UpdateMemoryAndRegisters() {
 	for (int i = 0; i < 16; i++) {
 		RegistersValueList[i]->Text = machine->getRegisterNumber(i);
 	}
-	MemoryDataGrid->Rows->Clear();
-	for (int i = 0; i < 256; i++) {
-		MemoryDataGrid->Rows->Add(makeHex(i), machine->getTheMemoryNumber(i));
+	
+	for (int i = machine->counter.store(); i < 256; i++) {
+		MemoryDataGrid->Rows[i]->Cells[0]->Value = makeHex(i);
+		MemoryDataGrid->Rows[i]->Cells[1]->Value = machine->getTheMemoryNumber(i);
 	}
 	outputBox->Text = makeSysString(machine->output);
 	Form1::GetPC();
