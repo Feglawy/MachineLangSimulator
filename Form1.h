@@ -186,9 +186,9 @@ namespace CppCLRWinFormsProject {
             this->label5->AutoSize = true;
             this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label5->Location = System::Drawing::Point(697, 9);
+            this->label5->Location = System::Drawing::Point(872, 8);
             this->label5->Name = L"label5";
-            this->label5->Size = System::Drawing::Size(127, 37);
+            this->label5->Size = System::Drawing::Size(71, 37);
             this->label5->TabIndex = 30;
             this->label5->Text = L"Memory";
             // 
@@ -717,7 +717,7 @@ namespace CppCLRWinFormsProject {
             this->label4->AutoSize = true;
             this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label4->Location = System::Drawing::Point(872, 8);
+            this->label4->Location = System::Drawing::Point(697, 9);
             this->label4->Name = L"label4";
             this->label4->Size = System::Drawing::Size(71, 37);
             this->label4->TabIndex = 23;
