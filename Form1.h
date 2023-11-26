@@ -33,8 +33,8 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
+#pragma region windows form componts
     private: System::Windows::Forms::Label^ label6;
-    protected:
     private: System::Windows::Forms::TextBox^ outputBox;
     private: System::Windows::Forms::Label^ label5;
     private: System::Windows::Forms::Button^ HaltButton;
@@ -93,6 +93,7 @@ namespace CppCLRWinFormsProject {
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+#pragma endregion
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

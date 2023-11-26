@@ -150,7 +150,9 @@ void MachineSimulator::executeNext()
 
 void MachineSimulator::runInstructions(vector<int> instr)
 {
+    // loads the the instrections to the memory
     MachineSimulator::loadMemory(instr);
+    // executes the instrections 
     MachineSimulator::executeSimulator();
 }
 
