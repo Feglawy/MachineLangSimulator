@@ -767,6 +767,7 @@ namespace CppCLRWinFormsProject {
             this->Controls->Add(this->label1);
             this->Controls->Add(this->InstructionsBox);
             this->Name = L"Form1";
+            this->Icon = gcnew System::Drawing::Icon("app.ico");
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
             this->Text = L"Machine Simulator";
             this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
