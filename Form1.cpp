@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "Form1.h"
+#include <sstream>
+#include <stdexcept>
+#include <string>
 
 System::Void CppCLRWinFormsProject::Form1::Form1_Load(System::Object^ sender, System::EventArgs^ e)
 {

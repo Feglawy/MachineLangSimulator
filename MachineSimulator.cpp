@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "MachineSimulator.h"
 
+#include <stdexcept>
+#include <sstream>
+#include <iostream>
+
+
 
 float Memory::read(int address)
 {

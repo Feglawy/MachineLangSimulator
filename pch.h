@@ -8,7 +8,7 @@
 #define PCH_H
 
 #include "MachineSimulator.h"
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <msclr/marshal_cppstd.h>
 
 using namespace std;

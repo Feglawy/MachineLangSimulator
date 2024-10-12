@@ -1,5 +1,6 @@
 #pragma once
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
+#include <vector>
 #include <chrono>
 #include <msclr/marshal_cppstd.h>
 #pragma warning(disable : 4244)
